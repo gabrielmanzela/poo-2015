@@ -6,16 +6,36 @@ public class Retangulo {
 	private int pos_y;
 	private int largura;
 	private int altura;
+	private static int count = 0;
 	
 	public Retangulo(int pos_x, int pos_y, int largura, int altura) {
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
 		this.largura = largura;
 		this.altura = altura;
+		count++;
 	}
 	
 	public String imprime() {
-		return "Retangulo[x:"+this.pos_x+",y:"+this.pos_y+",l:"+this.largura+",a:"+this.altura+"]";
+		return "retangulo[x:"+this.pos_x+",y:"+this.pos_y+",l:"+this.largura+",a:"+this.altura+"]";
+	}
+	
+	public static int instancias() {
+		return count;
+	}
+	
+	public static void zeraInstancias() {
+		count = 0;
+	}
+	
+	public static boolean igual(Retangulo a, Retangulo b) {
+		
+		boolean altura = a.altura == b.altura;
+		boolean largura = a.largura == b.largura;
+		boolean y = a.pos_y == b.pos_y;
+		boolean x = a.pos_x == b.pos_x;
+		
+		return (x && y && largura && altura && largura);
 	}
 	
 	public int getPos_x() {
@@ -49,5 +69,7 @@ public class Retangulo {
 	public void setAltura(int altura) {
 		this.altura = altura;
 	}
+
+	
 	
 }
