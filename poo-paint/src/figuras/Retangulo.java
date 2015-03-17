@@ -1,4 +1,4 @@
-package br.una.java;
+package figuras;
 
 public class Retangulo {
 	
