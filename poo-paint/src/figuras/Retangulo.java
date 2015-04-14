@@ -1,23 +1,22 @@
 package figuras;
 
-public class Retangulo {
+import java.awt.Graphics;
+
+public class Retangulo extends Figura{
 	
-	private int pos_x;
-	private int pos_y;
 	private int largura;
 	private int altura;
 	private static int count = 0;
 	
 	public Retangulo(int pos_x, int pos_y, int largura, int altura) {
-		this.pos_x = pos_x;
-		this.pos_y = pos_y;
+		super(pos_x,pos_y);
 		this.largura = largura;
 		this.altura = altura;
 		count++;
 	}
 	
 	public String imprime() {
-		return "retangulo[x:"+this.pos_x+",y:"+this.pos_y+",l:"+this.largura+",a:"+this.altura+"]";
+		return "retangulo[x:"+this.x+",y:"+this.y+",l:"+this.largura+",a:"+this.altura+"]";
 	}
 	
 	public static int instancias() {
@@ -32,26 +31,10 @@ public class Retangulo {
 		
 		boolean altura = a.altura == b.altura;
 		boolean largura = a.largura == b.largura;
-		boolean y = a.pos_y == b.pos_y;
-		boolean x = a.pos_x == b.pos_x;
+		boolean y = a.y == b.y;
+		boolean x = a.x == b.x;
 		
 		return (x && y && largura && altura && largura);
-	}
-	
-	public int getPos_x() {
-		return pos_x;
-	}
-	
-	public void setPos_x(int pos_x) {
-		this.pos_x = pos_x;
-	}
-	
-	public int getPos_y() {
-		return pos_y;
-	}
-	
-	public void setPos_y(int pos_y) {
-		this.pos_y = pos_y;
 	}
 	
 	public int getLargura() {
@@ -62,6 +45,11 @@ public class Retangulo {
 		return altura;
 	}
 	
+	@Override
+	public void desenha(Graphics g) {
+		// desenha retângulo
+		g.drawRect(this.x, this.y, altura, largura);
+	}
 
 	
 	
