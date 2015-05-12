@@ -1,10 +1,12 @@
 package principal;
 
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import figuras.Circulo;
 import figuras.Figura;
@@ -17,6 +19,9 @@ public class Paint extends JFrame {
 	}
 
 	public Paint() {
+		JPanel painelPrincipal = new Painel();
+		
+		
 		Retangulo ret1 = new Retangulo(5, 5, 100, 80);
 		Retangulo ret2 = new Retangulo(400, 45, 30, 30);
 		Circulo c = new Circulo(200, 50, 56);
@@ -33,7 +38,9 @@ public class Paint extends JFrame {
 		
 		areaDeDesenho.addMouseListener(mouse);
 		
-		this.setContentPane(areaDeDesenho);
+		painelPrincipal.add(areaDeDesenho, BorderLayout.CENTER);
+		
+		this.setContentPane(painelPrincipal);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setVisible(true);
